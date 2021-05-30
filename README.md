@@ -25,11 +25,11 @@ messageField = 0, 0 # The chat Field for a contact
 * Copy the X and Y coordinates and pass it to the variable mentioned above.
 * Find other two variables the same way.
 * ⚠️ Warning, make sure to choose right co-ordinates else you might sent the message to someone you don't wanted to 🧟
-* Configure the messages in the script. For multiple people edit the variable `peopleToMessage` in 
-``` Dict
-"number": "message"
+* Configure the messages in the script. For multiple people edit the variable `peopleToMessage` in the following format
 ```
-format
+"number": "message",
+"number2": "message2"
+```
 * That's it. Run the script and enjoy 😊
 
 ### Why so Complex?
