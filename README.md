@@ -14,11 +14,11 @@ It needs you to choose between two options. Either 1 message for all people or d
 * There are three variables in the code. You need to edit this *manually*. They are:
 ```python
 searchField = 0, 0 # The search filed on Whatsapp Web
-firstChildOnSearch # The first contact that appears after searching
+firstChildOnSearch = 0, 0# The first contact that appears after searching
 messageField = 0, 0 # The chat Field for a contact
 ```
 #### Here's what you need to do.
-* There's one more script in this repo named findCursorPos.py
+* There's one more script in this repo named mousePos.py
 * Open a terminal (or CMD on windows) and run the script. The script will print the cursors X and Y position on the screen.
 * Maximize your browser and hover your cursor to the search Field🔎 on Whatsapp Web. 
 * Without moving your cursor, open the terminal which is running the script and stop it by pressing `CTRL + C` (you could use keyboard shortcuts to switch windows)
