@@ -42,9 +42,9 @@ The thing is WhatsApp Web 🕸️ is a complex webapp. The tags, id or classes f
 If you've worked with selenium before, you know what I am talking about. Therefore it's stupid using that here.
 
 ### What about Pywhatkit?
-It would be really stupid 🤦🏻‍♂️ .Because pywhatkit opens new tabs everytime we want to message someone.
+Well pywhatkit is a really great module and it's very usefull on every occasions. But the thing is it opens new tab each time we iterate through list of users and messages. So it's possible that WhatsApp may ban your account for opening WhatsApp web in multiple tabs on same device. It also warns sometimes for doing so. I made this code to overcome that. 
 
 ### Why this code?
-😁 The problem arrived from a discord channel when someone asked help to accomplish this task. Even though it's not needed for me, I started thinking about this. I really like to test my skills and let them on the edge. So I made this tool for everyone whose looking for similar one.
+😁 The problem arrived from a discord server when someone asked help to accomplish this task. Even though it's not needed for me, I started thinking about this. I really like to test my skills and let them on the edge. So I made this tool for everyone whose looking for similar one.
 
 And if you've reached here, then it would be great if you follow me on twitter [@psycho_sherlock](https://www.twitter.com/psycho_sherlock) ☺️ coz I am really low on followers. 
