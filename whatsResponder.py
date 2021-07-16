@@ -1,7 +1,6 @@
 # Author: Athul Prakash
 # Selenium based responder [temporary support as classes changes on whatsapp web]
 
-
 import argparse
 from time import sleep
 from selenium import webdriver, common
@@ -11,9 +10,10 @@ from selenium.webdriver.common.keys import Keys
 from webdriver_manager.utils import ChromeType
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.chrome import ChromeDriverManager
+from controller import createAndRun, getData
 
 #################################################
-#					Variables					#
+#		    Variables			#
 #################################################
 
 unread_icon = "_23LrM"
@@ -69,8 +69,9 @@ try:
 		exit("🚫 Invalid choice. Quitting now...")
 
 
-except:
+except Exception as e:
 	print('🚫 Make sure you choose a browser..')
+	print(e)
 
 
 people_list = []
@@ -86,10 +87,10 @@ def scrollBody():
 
 def logOut():
 	print("🚫 Logging out")
-	drop_down_menu = browser.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[3]/div/header/div[2]/div/span/div[3]/div')
+	drop_down_menu = browser.find_element_by_xpath("//div[@id='side']/header/div[2]/div/span/div[3]/div/span")
 	drop_down_menu.click()
 	sleep(1)
-	logOut_btn = browser.find_element_by_xpath('/html/body/div/div[1]/div[1]/div[3]/div/header/div[2]/div/span/div[3]/span/div[1]/ul/li[7]/div[1]')
+	logOut_btn = browser.find_element_by_xpath("//div[@id='side']/header/div[2]/div/span/div[3]/span/div/ul/li[7]/div")
 	logOut_btn.click()
 	sleep(1)
 	print('✅ Loggged out')
@@ -102,22 +103,30 @@ def logOut():
 try:
 	print("Starting web browser...")
 	browser.get('https://web.whatsapp.com')
-	sleep(4)
+	
 	print("✅ Loaded browser..")
+	sleep(4)
+
 	remember = browser.find_element_by_xpath('/html/body/div/div[1]/div/div[2]/div[1]/div/div[3]/label/input')
 	remember.click()
-	input("\n[-] Scan QR CODE and press enter ")
+	input("\n⚠️ Scan QR CODE and press enter ")
+
 	browser.minimize_window()
 	
+	createAndRun()
+	sleep(3)
 	
 	# Run an infinite loop to keep on checking for new messages
 	while True:
-		try:
-			sleep(2)
-		except KeyboardInterrupt:
+
+		sessionStatus=getData()['session']
+
+		if sessionStatus.lower()=='loggedout':
 			logOut()
-			#browser.close()
-			#exit("🚫 Quitting now")
+			browser.close()
+			exit("🚫 Quitting now")
+		else:
+			sleep(3.5)
 
 		# Get unread messages
 		unread_elements = browser.find_elements_by_class_name(unread_icon)
@@ -195,8 +204,10 @@ try:
 #				browser.close()
 #				exit("🚫 Quitting now")
 
-except common.exceptions.WebDriverException:
+except common.exceptions.WebDriverException as e:
+	print(e)
+
 	browser.close()
-#	exit("🚫 Quitting now")
+	exit("🚫 Quitting now")
 
 #/html/body/div/div[1]/div[1]/div[3]/div/header/div[2]/div/span/div[3]/span/div[1]/ul/li[7]/div[1]

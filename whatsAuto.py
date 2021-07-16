@@ -1,3 +1,5 @@
+# Author: Athul Prakash
+
 # Config 
 #================================
 
