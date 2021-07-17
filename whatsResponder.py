@@ -107,8 +107,8 @@ try:
 	print("✅ Loaded browser..")
 	sleep(4)
 
-	remember = browser.find_element_by_xpath('/html/body/div/div[1]/div/div[2]/div[1]/div/div[3]/label/input')
-	remember.click()
+	#remember = browser.find_element_by_xpath('/html/body/div/div[1]/div/div[2]/div[1]/div/div[3]/label/input')
+	#remember.click()
 	input("\n⚠️ Scan QR CODE and press enter ")
 
 	browser.minimize_window()
