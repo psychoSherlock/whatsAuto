@@ -14,22 +14,22 @@ It needs you to choose between two options. Either 1 message for all people or d
 * There are three variables in the code. You need to edit this *manually*. They are:
 ```python
 searchField = 0, 0 # The search filed on Whatsapp Web
-firstChildOnSearch # The first contact that appears after searching
+firstChildOnSearch = 0, 0# The first contact that appears after searching
 messageField = 0, 0 # The chat Field for a contact
 ```
 #### Here's what you need to do.
-* There's one more script in this repo named findCursorPos.py
+* There's one more script in this repo named mousePos.py
 * Open a terminal (or CMD on windows) and run the script. The script will print the cursors X and Y position on the screen.
 * Maximize your browser and hover your cursor to the search Field🔎 on Whatsapp Web. 
 * Without moving your cursor, open the terminal which is running the script and stop it by pressing `CTRL + C` (you could use keyboard shortcuts to switch windows)
 * Copy the X and Y coordinates and pass it to the variable mentioned above.
 * Find other two variables the same way.
 * ⚠️ Warning, make sure to choose right co-ordinates else you might sent the message to someone you don't wanted to 🧟
-* Configure the messages in the script. For multiple people edit the variable `peopleToMessage` in 
-``` Dict
-"number": "message"
+* Configure the messages in the script. For multiple people edit the variable `peopleToMessage` in the following format
 ```
-format
+"number": "message",
+"number2": "message2"
+```
 * That's it. Run the script and enjoy 😊
 
 ### Why so Complex?
@@ -42,9 +42,9 @@ The thing is WhatsApp Web 🕸️ is a complex webapp. The tags, id or classes f
 If you've worked with selenium before, you know what I am talking about. Therefore it's stupid using that here.
 
 ### What about Pywhatkit?
-It would be really stupid 🤦🏻‍♂️ .Because pywhatkit opens new tabs everytime we want to message someone.
+Well pywhatkit is a really great module and it's very usefull on every occasions. But the thing is it opens new tab each time we iterate through list of users and messages. So it's possible that WhatsApp may ban your account for opening WhatsApp web in multiple tabs on same device. It also warns sometimes for doing so. I made this code to overcome that. 
 
 ### Why this code?
-😁 The problem arrived from a discord channel when someone asked help to accomplish this task. Even though it's not needed for me, I started thinking about this. I really like to test my skills and let them on the edge. So I made this tool for everyone whose looking for similar one.
+😁 The problem arrived from a discord server when someone asked help to accomplish this task. Even though it's not needed for me, I started thinking about this. I really like to test my skills and let them on the edge. So I made this tool for everyone whose looking for similar one.
 
 And if you've reached here, then it would be great if you follow me on twitter [@psycho_sherlock](https://www.twitter.com/psycho_sherlock) ☺️ coz I am really low on followers. 

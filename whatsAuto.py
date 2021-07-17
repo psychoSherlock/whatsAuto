@@ -13,9 +13,9 @@ messageField = 0, 0 # The message field
 # For multiple message to multiple people
 
 peopleToMessage = {
-    "8281931488": "This is a random message",
-    "8921511945": "Follow @psycho_sherlock on twitter",
-    "mum": "Hope this code helps you"
+    "0123458483": "This is a random message",
+    "1222239229": "Follow @psycho_sherlock on twitter",
+    "Name": "Hope this code helps you"
     # The above are examples. Add more number/name:messages like above. Dont forget to seperate them by','
 }
 
