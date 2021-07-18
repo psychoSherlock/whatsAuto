@@ -22,7 +22,7 @@ jsonObject =  json.loads(json.dumps(defaults))
 
 
 def updateData(key, value):
-    jsonObject[key]==value
+    jsonObject[key]=value
     return
 
 def createKey():

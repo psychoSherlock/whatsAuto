@@ -13,7 +13,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from controller import createAndRun, getData
 
 #################################################
-#		    Variables			#
+#		    		Variables					#
 #################################################
 
 unread_icon = "_23LrM"

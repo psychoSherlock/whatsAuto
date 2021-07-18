@@ -57,6 +57,7 @@
 
     // }, 500)
 
+    setInterval(
     function displayData(){
       console.log("Updated")
       fetch('/api/data/')
@@ -67,9 +68,7 @@
           sessionTag.innerHTML = "Session: " + jsonData['session'] 
           statusTag.innerHTML = "Session: " + jsonData['status'] 
       });
-    }
-
-    setInterval(displayData(), 500)
+    }, 500)
 
 </script>
 
