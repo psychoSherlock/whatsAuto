@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsAuto Controller</title>
+
+    <style>
+        body {
+            background-color: #24292e;
+            color: aliceblue;
+        }
+        a {
+            text-decoration: none;
+            color:rgb(33, 250, 69);
+            background-color: rgb(56, 61, 57);
+        }
+
+    </style>
+
+  </head>
+  <body>
+    
+    <h1>Controller for selenium based whatsapp automation</h1>
+
+    <p class="data-elements">Session: logged Out</p>
+    <p class="data-elements">Status: Stopped</p>
+
+    <a href="/api/update/key=session&value=loggedOut">LogOut</a>
+    <a href="/api/update/key=status&value=stopped">STOP</a>
+  </body>
+
+
+<script>
+  var sessionTag = document.getElementsByClassName('data-elements')[0]
+  var statusTag = document.getElementsByClassName('data-elements')[1]
+
+  
+  function api(url) {
+    var sender = new XMLHttpRequest;
+    sender.open('GET',url) // update later to post
+    sender.send()
+
+    return sender
+  }
+
+  function convertToJson(object){
+    var string = JSON.stringify(object)
+    return jsonData
+    }
+
+    // window.onload=setInterval(function(){
+
+    //   var apiData = api('/api/data/')
+    //   console.log(apiData.responseText)
+
+    // }, 500)
+
+    function displayData(){
+      console.log("Updated")
+      fetch('/api/data/')
+        .then(function (response) {
+          return response.text();
+      }).then(function (text) {
+          var jsonData = JSON.parse(text);
+          sessionTag.innerHTML = "Session: " + jsonData['session'] 
+          statusTag.innerHTML = "Session: " + jsonData['status'] 
+      });
+    }
+
+    setInterval(displayData(), 500)
+
+</script>
+
+</html>

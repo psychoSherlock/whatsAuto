@@ -1,8 +1,29 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
+from flask_cors import CORS
 from random import random
 from hashlib import md5
 import json
 
+
+
+
+
+
+import json
+
+from werkzeug.utils import redirect
+
+defaults = {
+    "session": "logged In",
+    "status": "running"
+}
+
+jsonObject =  json.loads(json.dumps(defaults))
+
+
+def updateData(key, value):
+    jsonObject[key]==value
+    return
 
 def createKey():
     return md5((str(random()).encode())).hexdigest()
@@ -10,17 +31,12 @@ def createKey():
 
 app = Flask(__name__)
 
-secretKey = createKey()
-print(f"SECRET KEY: {secretKey}")
+#secretKey = createKey()
+#print(f"SECRET KEY: {secretKey}")
 
+# FOr cors
 
-
-dickt = {
-    "running": True
-}
-
-jsDump = json.dumps(dickt)
-jsData = json.loads(jsDump)
+CORS(app)
 
 @app.route('/', methods=["POST", "GET"])
 def index():
@@ -30,26 +46,39 @@ def index():
         return "^FLAG{GO_FUCK_YOUR_SELF}^"
 
 
+@app.route("/controller")
+def controller():
+    session = jsonObject['session']
+    status = jsonObject['status']
+    return render_template('controller.html', session=session, status=status)
+
+
+@app.route("/api/update/key=<key>&value=<value>")
+def update(key, value):
+    updateData(key, value)
+    return redirect('/controller')
+
+
+
+@app.route('/api/data/')
+def apiData():
+    return jsonObject
+
+
+
 @app.route('/api/login', methods=["POST"])
 def api():
     keyInp = request.headers.get('secret')
     if keyInp == None:
-        return "Unauthorized"
-    elif keyInp==secretKey:
-        return "Authorized successfully"
+        return 401
+
+    #elif keyInp==secretKey:
+    #    return "Authorized successfully"
     else:
 
-        return "Unauthorized"
-@app.route('/api/update', methods=["POST", "PUT"])
-def apiUpdate():
-    running = jsData['running'] if request.json['running'] else request.json
-    #data = request.json
-    jsData['running'] = str(running)
-    return jsData
+        return 401
 
 
 
-
-if __name__=='__main__':
-    app.debug=True
-    app.run(host='127.0.0.1')
+app.debug=True
+app.run(host='127.0.0.1', port=6464, threaded=True)
