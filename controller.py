@@ -10,7 +10,7 @@ def getData():
 
 def runController():
 
-	data = {"session":"loggedIn"}
+	data = {"session":"loggedIn", "status":"running"}
 	with open('/tmp/whatsAuto/controller.json', 'w') as f:
 	    json.dump(data, f)
 	    print("Logged In")
@@ -58,12 +58,17 @@ while True:
         print(status)
 
     elif 'exit' in command.lower():
-        exit("🚫 Bye")
+        data = {"status":"quit"}
+        with open('/tmp/whatsAuto/controller.json', 'w') as f:
+
+            json.dump(data, f)
+
+            print("Logged out")
+            exit("🚫 Bye")
         break
 
     else:
         print("Not a command")
-
 
 	"""
 

@@ -1,3 +1,9 @@
-__pycache__/
-env/
-geckodriver.log
+__pycache__/app.cpython-39.pyc
+__pycache__/controller.cpython-39.pyc
+__pycache__/imgRead.cpython-39.pyc
+*.pyc
+tmp.py
+test**
+ignore.list
+custom.json
+test.py
